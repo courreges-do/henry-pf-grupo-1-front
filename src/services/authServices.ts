@@ -7,18 +7,18 @@ export const googleAuth = () => {
 export const getUserSession = async () => {
   try {
     const response = await fetch(`${API_URL}/auth/me`, {
-      method: 'GET',
-      credentials: 'include', 
+      method: "GET",
+      credentials: "include",
     });
 
     if (!response.ok) {
-      throw new Error('No active session');
+      throw new Error("No active session");
     }
 
     const userData = await response.json();
     return userData;
   } catch (error) {
-    console.error('Error getting session:', error);
+    console.error("Error getting session:", error);
     return null;
   }
 };
