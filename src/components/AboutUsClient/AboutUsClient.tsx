@@ -14,7 +14,7 @@ const teamMembers = [
     name: "Pablo Moscon",
     image: "/team/pablo.jpg",
     github: "https://github.com/pablomoscon",
-    linkedin: "https://linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/pablo-mosc%C3%B3n-7990142b0/",
   },
   {
     name: "Macarena Exposto",
