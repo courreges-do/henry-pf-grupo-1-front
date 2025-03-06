@@ -12,16 +12,18 @@ const UserManager = () => {
   const [users, setUsers] = useState<UserData[]>([]);
   const [showCreateForm, setShowCreateForm] = useState(false);
 
-const loadUsers = useCallback(async () => {
-  try {
-    const data = await userManagerService.getUsers(user?.response.token || '');
+  const loadUsers = useCallback(async () => {
+    try {
+      const data = await userManagerService.getUsers(
+        user?.response.token || ''
+      );
 
-    // Asegúrate de que data no sea null y asigna un arreglo vacío si es el caso
-    setUsers(data ?? []);
-  } catch {
-    alert('Error loading users');
-  }
-}, [user]);
+      setUsers(data ?? []);
+    } catch {
+      alert('Error loading users');
+    }
+  }, [user]);
+
 
   useEffect(() => {
     if (user?.response.user.role !== "admin") {

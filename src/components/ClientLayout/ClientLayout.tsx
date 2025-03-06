@@ -4,6 +4,7 @@ import { UserContext } from '@/contexts/userContext';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { getUserReservations } from '@/services/bookService';
+import { IReservation } from '@/interfaces/IReserve';
 
 export default function ClientLayout({
   children,
@@ -15,7 +16,7 @@ export default function ClientLayout({
   const token = user?.response.token;
 
   const [isChatsOpen, setIsChatsOpen] = useState(false);
-  const [userReservations, setUserReservations] = useState<any[]>([]);
+  const [userReservations, setUserReservations] = useState<IReservation[]>([]);
 
   useEffect(() => {
     if (userId) {
