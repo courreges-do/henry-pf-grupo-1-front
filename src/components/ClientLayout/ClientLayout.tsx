@@ -3,9 +3,7 @@
 import { UserContext } from '@/contexts/userContext';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import ChatModal from '../ChatModal/ChatModal';
 import { getUserReservations } from '@/services/bookService';
-import CheckIn from '../CheckIn/CheckIn';
 
 export default function ClientLayout({
   children,

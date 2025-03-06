@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-green-dark text-white-ivory  bottom-0 left-0 py-4 z-50">
+    <footer className="w-full bg-green-dark text-white-ivory bottom-0 left-0 py-4 z-50">
       <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 space-y-4 md:space-y-0">
         <div className="flex items-center space-x-4">
           <a
@@ -32,7 +33,7 @@ const Footer = () => {
             />
           </a>
         </div>
-        <div>
+        <div className="flex flex-col items-center md:items-start space-y-2">
           <p className="text-xs font-primary">
             Contact us:{" "}
             <a
@@ -42,6 +43,14 @@ const Footer = () => {
               contact@thefancybox.com
             </a>
           </p>
+          <div className="flex space-x-4 text-xs">
+            <Link href="/terms" className="hover:underline">
+              Terms & Conditions
+            </Link>
+            <Link href="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
         <div>
           <p className="font-primary text-xs">
