@@ -4,6 +4,7 @@ import { useContext, useState, useEffect, useRef } from 'react';
 import { ChatContext } from '@/contexts/chatContext';
 import { UserContext } from '@/contexts/userContext';
 import { useChat } from '@/hooks/useChat';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Chat = () => {
   const { user } = useContext(UserContext);
@@ -17,7 +18,7 @@ const Chat = () => {
     setChatId(idFromUrl);
   }, [setChatId]);
 
-  const { messages, sendMessage, errorMessage } = useChat(
+  const { messages, sendMessage, errorMessage, loading } = useChat(
     chatId || '',
     user?.response?.user
       ? {
@@ -46,6 +47,14 @@ const Chat = () => {
     sendMessage(newMessage, timestamp);
     setNewMessage('');
   };
+
+  if (loading) {
+    return (
+      <div className='h-screen flex items-center justify-center bg-black-dark'>
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <div className='h-[calc(100vh-96px)] flex items-center justify-center bg-black-dark'>
